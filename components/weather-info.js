@@ -5,7 +5,6 @@ class WeatherInfo extends LitElement {
         :host {
             display: block;
             padding: 15px;
-            text-align: center;
         }
         .title {
             font-weight: bold;
