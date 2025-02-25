@@ -6,30 +6,35 @@ class BikeInfo extends LitElement {
             display: block;
             padding: 15px;
         }
+
+        a {
+            color: black;
+        }
+
         .title {
             font-weight: bold;
             font-size: 1.2em;
         }
-        
+
         .info-wrapper {
             display: flex;
-            
+
             margin-top: 15px;
             margin-bottom: 15px;
         }
-        
+
         .info-wrapper img {
             width: 100px;
         }
-        
+
         .info-right-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
+
             margin-left: 15px;
             margin-right: 15px;
-            
+
             text-align: left;
             font-size: 18px;
         }
@@ -78,16 +83,16 @@ class BikeInfo extends LitElement {
         .bike-info {
             display: flex;
             flex-direction: column;
-            
+
             color: white;
             font-size: 16px;
             margin-right: 10px;
         }
-        
+
         .bike-info p {
             margin: 0;
         }
-        
+
         .bike-info-label {
             margin-bottom: 3px;
             font-size: 14px;
@@ -95,6 +100,18 @@ class BikeInfo extends LitElement {
 
         .bike-info strong {
             font-size: 24px;
+        }
+
+        .price-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .price {
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
         }
     `;
 
@@ -118,7 +135,7 @@ class BikeInfo extends LitElement {
             const response = await fetch(url);
             const data = await response.json();
             this.bikesAvailable = data.mainStands.availabilities.bikes;
-            this.totalBikes = data.mainStands.availabilities.stands;
+            this.totalBikes = data.mainStands.capacity;
         } catch (error) {
             console.error("Error fetching bike data:", error);
         }
@@ -153,6 +170,9 @@ class BikeInfo extends LitElement {
                     <p class="bike-info-label">À cette heure,</p>
                     <p><strong>${this.bikesAvailable}</strong> VÉLOS DISPONIBLES</p>
                 </div>
+            </div>
+            <div class="price-container">
+                <a href="https://www.velostanlib.fr/fr/offers/groups" class="price">Pour les étudiants, l’abonnement illimité à 15€/an.</a>
             </div>
         `;
     }
