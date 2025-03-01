@@ -8,7 +8,14 @@ Fait dans le cadre de la Semaine Web du Dep' Info N23, ce dépôt héberge le pr
 
 ### Lancer le projet
 
-Une solution simple pour faire tourner ce projet local est l'utilisation d'un serveur web Python. Dans un terminal à la racine du projet, lancer:
+#### Clés API
+Avant toute chose, il faut se créer des clés API [JCDecaux Developer](https://developer.jcdecaux.com/#/account) et [OpenWeather](https://openweathermap.org/api). Ensuite, il faut les stocker dans un fichier `secrets.js` (à la racine du projet) de la manière suivante:
+```
+export const JCD_API_KEY = 'CLE-JCDECAUX';
+export const OW_API_KEY = 'CLE-OPENWEATHER';
+```
+
+À partir de là, une solution simple pour faire tourner ce projet local est l'utilisation d'un serveur web Python. Dans un terminal à la racine du projet, lancer:
 ```
 python3 -m http.server 8000
 ```
