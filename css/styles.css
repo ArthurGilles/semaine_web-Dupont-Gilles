@@ -3,7 +3,6 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 header {
@@ -11,12 +10,27 @@ header {
     color: white;
     padding: 20px;
     font-size: 1.2em;
+
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+header p {
+    margin: 10px 0 0 0;
+
+    font-size: 18px;
 }
 
 .intro {
     background-color: #eaeaea;
     padding: 10px;
     font-size: 1.1em;
+    text-align: center;
 }
 
 main {

@@ -5,16 +5,54 @@ class WeatherInfo extends LitElement {
         :host {
             display: block;
             padding: 15px;
-            text-align: center;
         }
+
         .title {
             font-weight: bold;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
+
+        .weather-container {
+            display: flex;
+            align-items: center;
+            background-color: #ffca37;
+            border-radius: 50px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+            margin-bottom: 5px;
+        }
+
+        .weather-left {
+            margin: 10px;
+        }
+
         .weather-icon {
             width: 50px;
             height: 50px;
+        }
+
+        .weather-right {
+            display: flex;
+            flex-direction: column;
+
+            color: white;
+            margin-right: 10px;
+        }
+
+        .weather-right-label {
+            margin: 10px 0 5px 0;
+            font-size: 14px;
+        }
+
+        .weather-right-forecast {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .weather-source {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 12px;
         }
     `;
 
@@ -58,14 +96,21 @@ class WeatherInfo extends LitElement {
     render() {
         return html`
             <div class="title">🚶‍♂️ À PIED</div>
-            <p>MÉTÉO CAMPUS ARTEM</p>
+            <p>Météo sur le <strong>Campus ARTEM</strong></p>
+            <div class="weather-container">
             ${this.loading
                 ? html`<p>Chargement...</p>`
                 : html`
-                    <p><strong>${this.temperature}°C</strong></p>
-                    <p>${this.description}</p>
-                    <img class="weather-icon" src="${this.icon}" alt="Météo">
+                    <div class="weather-left">
+                        <img class="weather-icon" src="${this.icon}" alt="Météo">
+                    </div>
+                    <div class="weather-right">
+                        <p class="weather-right-label">À cette heure,</p>
+                        <p class="weather-right-forecast"><strong>${this.temperature}°C</strong> - ${this.description}</p>
+                    </div>
                 `}
+            </div>
+            <a href="https://openweathermap.org" class="weather-source">OpenWeather</a>
         `;
     }
 }
