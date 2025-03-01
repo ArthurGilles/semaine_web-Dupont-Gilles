@@ -23,7 +23,7 @@ class BusInfo extends LitElement {
     }
 
     async fetchBusSchedule() {
-        // A voir si tu gardes du coup...
+        // TODO
         const url = "" 
         try {
             const response = await fetch(url);
@@ -38,8 +38,8 @@ class BusInfo extends LitElement {
     render() {
         return html`
             <div class="title">🚌 EN BUS</div>
-            <p>PROCHAINS PASSAGES DU BUS CAMPUS ARTEM</p>
-            <p>${this.nextBus}</p>
+            <p>Prochains passages station <strong>Campus ARTEM</strong></p>
+            <p>À VENIR</p>
         `;
     }
 }
