@@ -106,8 +106,7 @@ class WeatherInfo extends LitElement {
                     </div>
                     <div class="weather-right">
                         <p class="weather-right-label">À cette heure,</p>
-                        <p class="weather-right-forecast">${this.description} - <strong>${this.temperature}°C</strong></p>
-                        
+                        <p class="weather-right-forecast"><strong>${this.temperature}°C</strong> - ${this.description}</p>
                     </div>
                 `}
             </div>
