@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/npm/lit@latest/+esm';
+import { JCD_API_KEY } from '../secrets.js';
 
 class BikeInfo extends LitElement {
     static styles = css`
@@ -128,19 +129,21 @@ class BikeInfo extends LitElement {
     }
 
     async fetchBikeData() {
-        const apiKey = '653e90747c8120cbefc9d6b754b33bfe533ffa73'; 
         const contractName = 'nancy';
-        const url = `https://api.jcdecaux.com/vls/v3/stations/31?contract=${contractName}&apiKey=${apiKey}`;
+        const url = `https://api.jcdecaux.com/vls/v3/stations/31?contract=${contractName}&apiKey=${JCD_API_KEY}`;
         try {
             const response = await fetch(url);
             const data = await response.json();
             this.bikesAvailable = data.mainStands.availabilities.bikes;
             this.totalBikes = data.mainStands.capacity;
         } catch (error) {
-            console.error("Error fetching bike data:", error);
+            console.error("Error fetching VéloStan' lib data:", error);
         }
     }
 
+    /**
+     * Returns dashoffset value for updating circle UI.
+     */
     get dashOffset() {
         const percentage = this.bikesAvailable / this.totalBikes;
         const circumference = 2 * Math.PI * 25;

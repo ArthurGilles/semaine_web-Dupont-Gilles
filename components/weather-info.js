@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/npm/lit@latest/+esm';
+import { OW_API_KEY } from '../secrets.js';
 
 class WeatherInfo extends LitElement {
     static styles = css`
@@ -75,7 +76,7 @@ class WeatherInfo extends LitElement {
     async fetchWeather() {
         const apiKey = '8a721d1f40392527a0e4b38c94574459'; 
         const city = 'Nancy,fr';
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=fr`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${OW_API_KEY}&lang=fr`;
 
         try {
             const response = await fetch(url);
